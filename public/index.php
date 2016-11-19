@@ -9,6 +9,13 @@
         'database_file' => '../storage/database.db'
     ]);
 
+    $comment = new SitePoint\Comment($database);
+    $comment->setEmail('bruno@skvorc.me')
+        ->setName('Bruno Skvorc')
+        ->setComment('Hooray! Saving comments works!')
+        ->save();
+        dump($database->error());
+
 ?>
 
 <!doctype html>
@@ -56,3 +63,5 @@
         </script>
     </body>
 </html>
+
+CREATE TABLE comments ( id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL, comment TEXT NOT NULL, submissionDate TEXT NOT NULL);
